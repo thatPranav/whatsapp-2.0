@@ -4,6 +4,7 @@ import ChatIcon from "@material-ui/icons/Chat";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import SearchIcon from "@material-ui/icons/Search";
 import { IconButton } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 function Sidebar() {
   return (
@@ -23,8 +24,13 @@ function Sidebar() {
 
       <Search>
           <SearchIcon />
+          <SearchInput placeholder="Search in chats" />
 
       </Search>
+
+      <SidebarButton>Start a new Chat</SidebarButton>
+
+      {/* List of Chats */}
     </Container>
   );
 }
@@ -33,8 +39,27 @@ export default Sidebar;
 
 const Container = styled.div``;
 
-const Search = styled.div``;
+const Search = styled.div`
+display: flex;
+align-items: center;
+padding: 20px;
+border-radius: 2px;
+`;
 
+const SidebarButton = styled(Button)`
+width: 100%;
+// To increase priority
+&&&{
+    border-top: 1px solid whitesmoke;
+    border-bottom: 1px solid whitesmoke;
+}
+`;
+
+const SearchInput = styled.input`
+outline-width: 0;
+border: none;
+flex: 1;
+`;
 
 const Header = styled.div`
   display: flex;
